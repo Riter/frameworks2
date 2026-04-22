@@ -1,0 +1,18 @@
+services:
+  sms-spam-poc:
+    build:
+      context: .
+    container_name: sms-spam-poc
+    environment:
+      OLLAMA_HOST: 0.0.0.0:11434
+      OLLAMA_BASE_URL: http://127.0.0.1:11434
+      OLLAMA_MODEL: qwen2.5:0.5b
+    ports:
+      - "8000:8000"
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:
+
